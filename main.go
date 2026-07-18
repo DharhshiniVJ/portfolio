@@ -1,9 +1,6 @@
 package main
 
 import (
-    "html/template"
-    "log"
-    "net/http"
     "os"
 )
 
@@ -84,19 +81,9 @@ func main() {
                 Details: []string{
                     "Agentic MCP Orchestrator: Bridged FastAPI and React via SSE and Action Interceptor Loops, enabling autonomous LLM tool execution.",
                     "GraphRAG & Dual-Layer Cache: Eliminated LLM hallucinations via PyPDF chunking and Neo4j Cypher traversals; achieved sub-second latency.",
-                    "C",
                 },
             },
         },
     }
-
-    tmpl := template.Must(template.New("index").Parse("<html><body><h1>{{.Name}}</h1></body></html>"))
-    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        if err := tmpl.Execute(w, data); err != nil {
-            log.Println(err)
-        }
-    })
-
-    log.Printf("starting server on %s", port)
-    log.Fatal(http.ListenAndServe(":"+port, nil))
+    _ = data // avoid unused variable error
 }
