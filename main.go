@@ -63,7 +63,7 @@ func main() {
             },
             {
                 Company:  "Zhians On-Site",
-                Role:     "Software Development Engineer (internship)",
+                Role:     "Software Development Engineer (Internship)",
                 Duration: "Jul 2025 - Aug 2025",
                 Description: []string{
                     "Built a multi-role fertility tracking application ecosystem (Patient, Doctor, Seller apps) using Flutter and Firebase.",
@@ -86,6 +86,5 @@ func main() {
             },
         },
     }
-
     _ = data
 }
