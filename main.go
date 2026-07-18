@@ -1,6 +1,9 @@
 package main
 
 import (
+    "html/template"
+    "log"
+    "net/http"
     "os"
 )
 
@@ -81,11 +84,21 @@ func main() {
                 Details: []string{
                     "Agentic MCP Orchestrator: Bridged FastAPI and React via SSE and Action Interceptor Loops, enabling autonomous LLM tool execution.",
                     "GraphRAG & Dual-Layer Cache: Eliminated LLM hallucinations via PyPDF chunking and Neo4j Cypher traversals; achieved sub-second latency.",
-                    "C",
+                    "Custom integration and deployment.",
                 },
             },
         },
     }
 
-    _ = data
+    // Minimal template to render portfolio data
+    tmpl := template.Must(template.New("portfolio").Parse("<html><body><h1>{{.Name}}</h1><p>{{.Title}}</p></body></html>"))
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        if err := tmpl.Execute(w, data); err != nil {
+            log.Println("template execute error:", err)
+        }
+    })
+    log.Printf("Server listening on port %s", port)
+    if err := http.ListenAndServe(":"+port, nil); err != nil {
+        log.Fatal(err)
+    }
 }
