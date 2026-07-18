@@ -1,8 +1,6 @@
 package main
 
-import (
-    "os"
-)
+import "os"
 
 type Project struct {
     Name        string
@@ -87,7 +85,6 @@ func main() {
         },
     }
 
-    // The variable 'data' is prepared for further use (e.g., rendering templates or serving HTTP).
+    // Prevent unused variable error
     _ = data
-    _ = port
 }
