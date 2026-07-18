@@ -93,29 +93,27 @@ func main() {
                 Description: "Trustless Web3 freelance platform — contracts, payments, and reputation fully on-chain, no middleman.",
                 Details: []string{
                     "Next.js & MongoDB: Built a full-stack platform handling user authentication, real-time chat, job boards, and tracking.",
-                    "Solidity & Hardhat:",
+                    "Solidity & Hardhat: Implemented smart contracts and deployment pipelines for secure payment handling.",
                 },
             },
         },
     }
 
-    // Added declaration for err to satisfy compiler where err is referenced later.
-    var err error
-
-    // The rest of the program (template parsing, HTTP handlers, server start) remains unchanged.
+    // Parse the HTML template
     tmpl, err := template.ParseFiles("templates/index.html")
     if err != nil {
         log.Fatalf("failed to parse template: %v", err)
     }
 
+    // Render the portfolio page
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
         if err := tmpl.Execute(w, data); err != nil {
             log.Printf("template execution error: %v", err)
         }
     })
 
-    log.Printf("Server starting on port %s", port)
+    log.Printf("Server listening on port %s", port)
     if err := http.ListenAndServe(":"+port, nil); err != nil {
-        log.Fatalf("server error: %v", err)
+        log.Fatalf("failed to start server: %v", err)
     }
 }
