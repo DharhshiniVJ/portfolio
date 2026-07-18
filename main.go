@@ -93,25 +93,27 @@ func main() {
                 Description: "Trustless Web3 freelance platform — contracts, payments, and reputation fully on-chain, no middleman.",
                 Details: []string{
                     "Next.js & MongoDB: Built a full-stack platform handling user authentication, real-time chat, job boards, and tracking.",
-                    "Solidity & Hardhat: Implemented secure smart contracts and deployment pipelines.",
+                    "Solidity & Hardhat: Smart contract development and deployment.",
                 },
             },
         },
     }
 
+    // Parse HTML template
     tmpl, err := template.ParseFiles("templates/index.html")
     if err != nil {
         log.Fatalf("failed to parse template: %v", err)
     }
 
+    // Set up HTTP handler
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
         if err := tmpl.Execute(w, data); err != nil {
             log.Printf("template execution error: %v", err)
         }
     })
 
-    log.Printf("Server listening on %s", port)
+    log.Printf("Server starting on port %s", port)
     if err := http.ListenAndServe(":"+port, nil); err != nil {
-        log.Fatalf("failed to start server: %v", err)
+        log.Fatalf("server failed: %v", err)
     }
 }
