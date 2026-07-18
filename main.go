@@ -1,6 +1,9 @@
 package main
 
 import (
+    "html/template"
+    "log"
+    "net/http"
     "os"
 )
 
@@ -86,7 +89,12 @@ func main() {
             },
         },
     }
-
-    // Placeholder to avoid unused variable warnings.
     _ = data
+    tmpl := template.New("dummy")
+    _ = tmpl
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        w.Write([]byte("Hello"))
+    })
+    log.Println("Server starting on port", port)
+    log.Fatal(http.ListenAndServe(":"+port, nil))
 }
