@@ -99,22 +99,21 @@ func main() {
         },
     }
 
-    // Parse the HTML template.
+    // Parse template with proper error handling
     tmpl, err := template.ParseFiles("templates/index.html")
     if err != nil {
-        log.Fatalf("template parse error: %v", err)
+        log.Fatalf("failed to parse template: %v", err)
     }
 
-    // Set up the HTTP handler.
+    // Set up HTTP handler
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
         if err := tmpl.Execute(w, data); err != nil {
             log.Printf("template execution error: %v", err)
         }
     })
 
-    log.Printf("Server listening on %s", port)
-    // Start the server and handle any error.
+    // Start server with error handling
     if err := http.ListenAndServe(":"+port, nil); err != nil {
-        log.Fatalf("server error: %v", err)
+        log.Fatalf("server failed: %v", err)
     }
 }
