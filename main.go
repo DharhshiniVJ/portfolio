@@ -63,7 +63,7 @@ func main() {
             },
             {
                 Company:  "Zhians On-Site",
-                Role:     "Software Development Engineer (Internship)",
+                Role:     "Software Development Engineer (internship)",
                 Duration: "Jul 2025 - Aug 2025",
                 Description: []string{
                     "Built a multi-role fertility tracking application ecosystem (Patient, Doctor, Seller apps) using Flutter and Firebase.",
@@ -87,6 +87,6 @@ func main() {
         },
     }
 
-    // Prevent unused variable error
     _ = data
+    // TODO: start server using port variable
 }
