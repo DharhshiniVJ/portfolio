@@ -41,7 +41,7 @@ func main() {
 
 	data := PortfolioData{
 		Name:  "Dharhshini V Jaisankar",
-		Title: "AI Engineer + ",
+		Title: "AI Engineer + Full Stack Developer",
 		Summary: "Electronics and Computer Engineering student with hands-on experience building full stack web-applications, MCP servers, Web3 Contracts, and full-stack mobile apps. Comfortable across Flutter/React Native, Node.js/Python, and Neo4j/MongoDB/Firebase. Exploring AI harnesses, agentic tooling, and system design patterns.",
 		Email: "dharhshinivj30@gmail.com",
 		Github: "github.com/DharhshiniVJ",
@@ -51,7 +51,7 @@ func main() {
 			"Flutter", "Dart", "React Native", "Firebase", "REST APIs",
 			"MCP Servers", "Neo4j", "Graph RAG", "MongoDB", "RAG", "FAISS", "Node.js", "FastAPI",
 			"Solidity", "Hardhat", "MetaMask", "React", "HTML", "CSS","Langchain", "LLM", "Agentic Tooling",
-			"Arduino", "ESP32", "Docker", "Git", "GitHub",
+			"Arduino", "ESP32", "Docker", "Git", "GitHub","Jitsi SDK", "Gemini API", "OpenAI API", "Cerebras LLM",
 		},
 		Experiences: []Experience{
 			{
