@@ -86,8 +86,5 @@ func main() {
             },
         },
     }
-
-    _ = data // avoid unused variable warning
-
-    // TODO: start server using port variable
+    _ = data
 }
