@@ -89,10 +89,14 @@ func main() {
             },
         },
     }
-    // Use the data variable to avoid "declared and not used" errors.
-    _ = data
-    // Minimal template usage to keep the imported packages referenced.
-    _ = template.Must(template.New("dummy").Parse(""))
-    log.Println("Server started on port", port)
-    http.ListenAndServe(":"+port, nil)
+
+    tmpl := template.Must(template.New("index").Parse("<html><body><h1>{{.Name}}</h1></body></html>"))
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        if err := tmpl.Execute(w, data); err != nil {
+            log.Println(err)
+        }
+    })
+
+    log.Printf("starting server on %s", port)
+    log.Fatal(http.ListenAndServe(":"+port, nil))
 }
