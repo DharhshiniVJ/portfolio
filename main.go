@@ -86,5 +86,5 @@ func main() {
             },
         },
     }
-    _ = data // avoid unused variable error
+    _ = data
 }
