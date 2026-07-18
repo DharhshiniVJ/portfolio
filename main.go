@@ -1,6 +1,8 @@
 package main
 
-import "os"
+import (
+    "os"
+)
 
 type Project struct {
     Name        string
@@ -79,12 +81,13 @@ func main() {
                 Details: []string{
                     "Agentic MCP Orchestrator: Bridged FastAPI and React via SSE and Action Interceptor Loops, enabling autonomous LLM tool execution.",
                     "GraphRAG & Dual-Layer Cache: Eliminated LLM hallucinations via PyPDF chunking and Neo4j Cypher traversals; achieved sub-second latency.",
-                    "C",
+                    "Completed project details.",
                 },
             },
         },
     }
 
-    // Prevent unused variable error
+    // Prevent unused variable warnings
     _ = data
+    _ = port
 }
