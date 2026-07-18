@@ -87,7 +87,7 @@ func main() {
         },
     }
 
-    // Suppress unused variable warnings
-    _ = port
+    // The variable 'data' is prepared for further use (e.g., rendering templates or serving HTTP).
     _ = data
+    _ = port
 }
