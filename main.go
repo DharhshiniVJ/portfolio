@@ -87,6 +87,6 @@ func main() {
         },
     }
 
-    // The variable 'data' is now correctly initialized; you can use it as needed.
+    // Prevent unused variable error
     _ = data
 }
