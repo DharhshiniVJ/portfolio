@@ -99,21 +99,21 @@ func main() {
         },
     }
 
-    // Added declaration for err to ensure it is in scope for subsequent error handling.
-    var err error
-
-    tmpl, err := template.ParseFiles("templates/index.html")
+    // Parse the HTML template. Use short variable declaration only once.
+    tmpl, err := template.ParseFiles("template.html")
     if err != nil {
-        log.Fatalf("Failed to parse template: %v", err)
+        log.Fatalf("failed to parse template: %v", err)
     }
 
     http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        err = tmpl.Execute(w, data)
-        if err != nil {
-            log.Printf("Failed to execute template: %v", err)
+        // Execute the template with the portfolio data.
+        if err = tmpl.Execute(w, data); err != nil {
+            log.Printf("template execution error: %v", err)
         }
     })
 
     log.Printf("Server listening on %s", port)
-    log.Fatal(http.ListenAndServe(":"+port, nil))
+    if err = http.ListenAndServe(":"+port, nil); err != nil {
+        log.Fatalf("server error: %v", err)
+    }
 }
