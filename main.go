@@ -1,9 +1,6 @@
 package main
 
 import (
-    "html/template"
-    "log"
-    "net/http"
     "os"
 )
 
@@ -90,11 +87,7 @@ func main() {
         },
     }
 
-    // Use imports to avoid "unused import" errors
-    _ = template.New
-    _ = log.Println
-    _ = http.DefaultServeMux
-
-    // Prevent "unused variable" error for data
+    // Suppress unused variable warnings
+    _ = port
     _ = data
 }
