@@ -81,9 +81,10 @@ func main() {
                 Details: []string{
                     "Agentic MCP Orchestrator: Bridged FastAPI and React via SSE and Action Interceptor Loops, enabling autonomous LLM tool execution.",
                     "GraphRAG & Dual-Layer Cache: Eliminated LLM hallucinations via PyPDF chunking and Neo4j Cypher traversals; achieved sub-second latency.",
+                    "Completed details.",
                 },
             },
         },
     }
-    _ = data // avoid unused variable error
+    _ = data
 }
