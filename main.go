@@ -1,6 +1,7 @@
 package main
 
 import (
+    "fmt"
     "os"
 )
 
@@ -31,11 +32,6 @@ type PortfolioData struct {
 }
 
 func main() {
-    port := os.Getenv("PORT")
-    if port == "" {
-        port = "8081"
-    }
-
     data := PortfolioData{
         Name:  "Dharhshini V Jaisankar",
         Title: "AI Engineer + Full Stack Developer",
@@ -86,8 +82,7 @@ func main() {
             },
         },
     }
-    // Suppress unused variable warnings
-    _ = data
-    _ = port
+
+    // Use the data variable to avoid unused variable error
+    fmt.Printf("%+v\n", data)
 }
-}],
