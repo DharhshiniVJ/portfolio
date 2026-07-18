@@ -86,5 +86,7 @@ func main() {
             },
         },
     }
-    _ = data
+    _ = data // silence unused variable warning
+    _ = port // silence unused variable warning (if not used elsewhere)
 }
+}],
